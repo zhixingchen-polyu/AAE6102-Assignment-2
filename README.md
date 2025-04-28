@@ -103,3 +103,4 @@ GNSS-R is poised for deep integration with cutting-edge technologies such as art
 
 #### Declaration of AI and AI-assisted technologies in the writing process
 During the preparation of this work, the author(s) used GenAI to collecting Information and enhance the readability of the text. After using this tool/service, the author(s) reviewed and edited the content as necessary and assume(s) full responsibility for the content.
+https://chat.chatbotapp.ai/chats/-OOvigZiKXBNoBFvWAQe?model=gpt-3.5
