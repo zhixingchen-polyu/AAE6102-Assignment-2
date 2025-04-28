@@ -194,10 +194,10 @@ Chatroom Link: https://poe.com/s/IVQFgK1GDGzWZm1UR24O
 ```
 ## References
 ```
-Schaefer, M., & Pearson, A. (2021). Accuracy and precision of GNSS in the field. In GPS and GNSS Technology in Geosciences (pp. 393-414). Elsevier.
-Prol, F. S., Ferre, R. M., Saleem, Z., Välisuo, P., Pinell, C., Lohan, E. S., ... & Kuusniemi, H. (2022). Position, navigation, and timing (PNT) through low earth orbit (LEO) satellites: A survey on current status, challenges, and opportunities. IEEE access, 10, 83971-84002.
-Yu, K. (2021). Theory and practice of GNSS reflectometry. Berlin, Germany: Springer.
-Edokossi, K., Calabia, A., Jin, S., & Molina, I. (2020). GNSS-reflectometry and remote sensing of soil moisture: A review of measurement techniques, methods, and applications. Remote Sensing, 12(4), 614.
-Egido, A. (2013). GNSS reflectometry for land remote sensing applications (Doctoral dissertation, Polytechnic University of Catalonia, Spain).
-Walter, T., & Enge, P. (1995, September). Weighted RAIM for precision approach. In Proceedings of Ion GPS (Vol. 8, No. 1, pp. 1995-2004). Institute of Navigation.
+[1] Schaefer, M., & Pearson, A. (2021). Accuracy and precision of GNSS in the field. In GPS and GNSS Technology in Geosciences (pp. 393-414). Elsevier.
+[2] Prol, F. S., Ferre, R. M., Saleem, Z., Välisuo, P., Pinell, C., Lohan, E. S., ... & Kuusniemi, H. (2022). Position, navigation, and timing (PNT) through low earth orbit (LEO) satellites: A survey on current status, challenges, and opportunities. IEEE access, 10, 83971-84002.
+[3] Yu, K. (2021). Theory and practice of GNSS reflectometry. Berlin, Germany: Springer.
+[4] Edokossi, K., Calabia, A., Jin, S., & Molina, I. (2020). GNSS-reflectometry and remote sensing of soil moisture: A review of measurement techniques, methods, and applications. Remote Sensing, 12(4), 614.
+[5] Egido, A. (2013). GNSS reflectometry for land remote sensing applications (Doctoral dissertation, Polytechnic University of Catalonia, Spain).
+[6] Walter, T., & Enge, P. (1995, September). Weighted RAIM for precision approach. In Proceedings of Ion GPS (Vol. 8, No. 1, pp. 1995-2004). Institute of Navigation.
 ```
