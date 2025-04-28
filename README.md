@@ -1,48 +1,14 @@
-# Evolution of High-Precision GNSS Positioning in Smartphones: DGNSS to PPP-RTK
+# AAE6102_Assignment2: Lonosphere mapping based GNSS ground station
 
 ![GNSS-Technologies](https://img.shields.io/badge/GNSS-DGNSS%7CRTK%7CPPP%7CPPP--RTK-blue) 
-![Android-14](https://img.shields.io/badge/Android-14%20GNSS%20API-green)
 
-Global Navigation Satellite System (GNSS) technologies have transformed smartphone navigation, enabling sub-meter to centimeter-level precision through advanced correction methods. This document explores key technologies and their smartphone implementation challenges.
+# Evolution of High-Precision GNSS Positioning Technology in Smartphone Navigation: From DGNSS to PPP-RTK
 
-## Key Technologies
+Global Navigation Satellite Systems (GNSS) have become the core technology for smartphone navigation. However, the standard single-point positioning accuracy is limited by factors such as ionospheric delays, orbital errors, and multipath effects, typically within a range of several meters. As the demand for high-precision positioning surges in emerging fields like autonomous driving and augmented reality, Differential GNSS (DGNSS), Real-Time Kinematic (RTK), Precise Point Positioning (PPP), and its derivative technology PPP-RTK have gradually become key technical pathways for enhancing smartphone positioning accuracy. These technologies achieve sub-meter to centimeter-level precision through various error correction mechanisms, but their applicability in smartphone scenarios varies significantly.
 
-### 1. DGNSS: Meter-Level Enhancement
-- **Accuracy**: ~1 meter
-- **Mechanism**: Reference station error correction
-- **Pros**: 
-  - Mature infrastructure
-  - Low computational load
-- **Cons**: 
-  - Limited by ionospheric decorrelation (>50km)
-  - Requires continuous cellular connectivity
-- **Smartphone Impact**: Default enhancement for consumer apps
+## 1. DGNSS: Basic Enhancement with Communication Dependence
 
-### 2. RTK: Centimeter Accuracy at a Cost
-- **Accuracy**: 1-3 cm
-- **Requirements**:
-  - Dual-frequency GNSS
-  - Stable <100ms comms
-- **Challenges**:
-  - Smartphone antenna multipath
-  - NTRIP service reliability
-- **VRS Innovation**: Cloud-generated virtual reference stations
-
-### 3. PPP: Global Coverage with Convergence Trade-off
-- **Accuracy**: Centimeter-level (post-convergence)
-- **Convergence**: 
-  - 30+ mins (traditional)
-  - <10 mins (IPPP)
-- **5G Potential**: Real-time ephemeris delivery
-
-### 4. PPP-RTK: The Next Frontier
-- **Breakthrough**: 
-  - 1-min convergence
-  - 2-3 cm dynamic accuracy
-- **Implementation**:
-  - Snapdragon 8 Gen2 demo: 3.8cm accuracy
-  - Requires dense regional networks
-- **Advantage**: Works with intermittent connectivity
+Differential GNSS calculates the spatially correlated errors of satellite signals (such as ionospheric delays and ephemeris errors) using ground reference stations, generating differential correction data broadcasted to user terminals. Smartphones receive this correction information via mobile networks or satellite links, enhancing positioning accuracy to within 1 meter. The advantages of this technology include a mature infrastructure, compatibility with existing GNSS chip architectures, and relatively low computational complexity, making it suitable for resource-constrained mobile devices. 
 
 ## Smartphone Implementation
 
@@ -53,16 +19,4 @@ Global Navigation Satellite System (GNSS) technologies have transformed smartpho
 | PPP        | 2-5cm    | 10-30min    | Medium       | Dual-freq    |
 | PPP-RTK    | 2-3cm    | 1-2min      | Low          | Dual-freq+   |
 
-**Key Developments**:
-- Android 14 GNSS raw measurements API
-- Edge computing for ambiguity resolution
-- 5G low-latency correction delivery
 
-## Future Directions
-- LEO satellite augmentation
-- Quantum inertial navigation
-- Hybridized positioning systems
-
-![Tech Evolution](https://via.placeholder.com/600x200?text=DGNSS+-+RTK+-+PPP+-+PPP-RTK+Evolution)
-
-> **Note**: Actual performance depends on smartphone hardware constraints including antenna design and thermal/power limitations.
