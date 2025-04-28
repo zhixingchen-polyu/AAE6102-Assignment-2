@@ -35,7 +35,7 @@ High-precision navigation on smartphones is moving towards a technology route of
 
 # Task 2 – GNSS in Urban Areas
 I encountered some challenges in the implementation of the GNSS code, and I don't have a final implementation. I only have some pseudo code to reflect my ideas.
-
+```python
 import numpy as np
 from georinex import rinexobs
 from skyfield.api import Loader
@@ -68,6 +68,7 @@ for epoch in obs_data:
         print(f"Optimized Position: {pos_geo}")
     else:
         print("Insufficient visible satellites.")
+```
 # Task 4 – LEO Satellites for Navigation
 # The navigation paradox of low earth orbit constellations: Opportunities, challenges, and technological breakthroughs
 
