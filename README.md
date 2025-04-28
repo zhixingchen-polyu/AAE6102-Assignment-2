@@ -36,6 +36,7 @@ High-precision navigation on smartphones is moving towards a technology route of
 # Task 2 – GNSS in Urban Areas
 I encountered some challenges in the implementation of the GNSS code, and I don't have a final implementation. I only have some pseudo code to reflect my ideas.
 ```python
+# Task 2: Urban GNSS Positioning
 import numpy as np
 from georinex import rinexobs
 from skyfield.api import Loader
@@ -69,6 +70,52 @@ for epoch in obs_data:
     else:
         print("Insufficient visible satellites.")
 ```
+
+## Task 3 – GPS RAIM (Receiver Autonomous Integrity Monitoring)
+I encountered some challenges in the implementation of the GNSS code, and I don't have a final implementation. I only have some pseudo code to reflect my ideas.
+```python
+# Task 3: GPS RAIM
+import numpy as np
+from scipy.stats import chi2
+
+def weighted_raim(obs_data, sigma=3.0, p_fa=1e-2, p_md=1e-7):
+    # Step 1: Initial WLS solution
+    pos, residuals, H, W = solve_wls(obs_data)  # Assume WLS returns residuals and matrices
+    n_sats = len(obs_data)
+    
+    # Step 2: Fault detection
+    sse = np.sum(residuals**2)
+    dof = n_sats - 4  # Degrees of freedom (4 unknowns)
+    threshold = chi2.ppf(1 - p_md, dof)  # Threshold for P_md=1e-7
+    
+    if sse > threshold:
+        # Step 3: Fault exclusion (identify worst satellite)
+        S_matrix = np.eye(n_sats) - H @ np.linalg.inv(H.T @ W @ H) @ H.T @ W
+        normalized_res = residuals / np.sqrt(np.diag(S_matrix) * sigma
+        worst_sat = np.argmax(np.abs(normalized_res))
+        print(f"Excluding satellite: PRN{obs_data[worst_sat].prn}")
+        
+        # Recursively recompute with remaining satellites
+        new_obs = [sat for idx, sat in enumerate(obs_data) if idx != worst_sat]
+        return weighted_raim(new_obs, sigma, p_fa, p_md)
+    else:
+        # Step 4: Compute protection level (Bonus)
+        Q = np.linalg.inv(H.T @ W @ H)
+        k = 5.33  # Threshold for P_md=1e-7
+        PL_3d = k * sigma * np.sqrt(np.trace(Q))
+        
+        # Step 5: Stanford Chart (Bonus)
+        plot_stanford_chart(PL_3d, alarm_limit=50)  # Assume plotting function
+        return pos, PL_3d
+
+# Main loop
+obs_data = rinexobs.load("open_sky_data.obs")
+for epoch in obs_data:
+    sats = preprocess(epoch)  # Extract satellite data
+    pos, pl = weighted_raim(sats)
+    print(f"RAIM Position: {pos}, 3D PL: {pl:.2f}m")
+```
+
 # Task 4 – LEO Satellites for Navigation
 # The navigation paradox of low earth orbit constellations: Opportunities, challenges, and technological breakthroughs
 
