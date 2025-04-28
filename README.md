@@ -38,42 +38,42 @@ High-precision navigation on smartphones is moving towards a technology route of
 
 Abstract: The successful deployment of low Earth orbit (LEO) satellites in the communications sector has spurred wide-ranging exploration into their application in Global Navigation Satellite Systems (GNSS). Compared to traditional Medium Earth Orbit (MEO) GNSS satellites, LEO constellations theoretically promise decimeter-level positioning accuracy with their lower orbital altitudes (300-1200 kilometers), shorter signal transmission delays, and stronger signal power, even enabling penetration into urban canyon environments. However, transforming LEO communication satellites into highly reliable navigation nodes brings multiple challenges related to dynamics, signal schemes, and system integration, which stem from the fundamental contradictions between the physical characteristics of LEO satellites and the core demands of navigation services.
 
-1.Dynamics dilemma: High speed and signal stability
+## 1.Dynamics dilemma: High speed and signal stability
 LEO satellites have orbital periods of only 90-120 minutes and speeds relative to ground users of up to 7-7.8 km/s, significantly exceeding the 3.87 km/s of MEO satellites. This results in two critical issues.
 
-1.1.Extreme doppler shift
+### 1.1.Extreme doppler shift
 The carrier frequency received by users can shift by as much as ±100 kHz (compared to a typical value of ±5 kHz for GPS L1), which traditional GNSS receiver phase-locked loop (PLL) designs cannot accommodate. Although spread spectrum communication systems inherently possess Doppler tolerance, the real-time requirements for frequency compensation algorithms increase significantly, particularly in high-speed mobile scenarios (e.g., aircraft), necessitating frequency offset estimation and tracking within milliseconds, thereby placing pressure on the computational resources of consumer devices like smartphones.
 
-1.2.Transient visibility and topological turbulence
+### 1.2.Transient visibility and topological turbulence
 The overhead visibility time of a single LEO satellite is only 8-15 minutes, requiring users to frequently switch satellite links. Experimental data indicate that achieving continuous positioning depends on a minimum of 200 satellites in the constellation. While existing communication constellations like Starlink have deployed over 4,000 satellites, their orbital planes and phase distributions have not been optimized for navigation needs, leading to periodic degradation in satellite geometric configuration (DOP values). Moreover, unoptimized LEO constellations exhibit 37% lower positioning availability in equatorial regions compared to polar regions, exposing the deep impact of orbital inclination design on navigation performance.
 
-2.Signal scheme adaptation reconstruction
+## 2.Signal scheme adaptation reconstruction
 Current LEO communication systems utilize Ku/Ka frequency bands for high-frequency signals, which differ from the L-band used by GNSS at the physical layer, presenting multiple barriers to direct reuse.
 
-2.1.Atmospheric propagation loss and multipath effects
+### 2.1.Atmospheric propagation loss and multipath effects
 Ku-band signals (12-18 GHz) are over 20 dB more affected by rain attenuation than L-band signals, leading to a drastic drop in usability during heavy rainfall. Additionally, high-frequency signals experience increased reflection paths in complex environments (e.g., urban buildings), resulting in multipath errors that can reach meter-level. Empirical results from embedding navigation pilots in Starlink's downlink signals indicate that multipath effects can cause pseudorange fluctuations of 3-8 meters, significantly exceeding typical values for GNSS civilian signals (<1 meter).
 
-2.2.Signal structure conflicts
+### 2.2.Signal structure conflicts
 GNSS relies on spread spectrum code modulation and navigation message broadcasting, whereas LEO communication systems prioritize efficient data transmission using dynamic modulation techniques like OFDM and TDD. Directly embedding navigation signals would need to resolve spectrum resource competition issues. For instance, the patent for SpaceX's "satellite-based navigation enhancement service" proposes inserting navigation ranging codes during communication frame guard intervals, which would sacrifice 4.7% of communication capacity, raising cost-effectiveness concerns in commercial models.
 
-3.Collaborative dilemma of time and space reference
+## 3.Collaborative dilemma of time and space reference
 LEO satellite navigation systems must establish independent time and space references or achieve deep integration with traditional GNSS systems, creating a dilemma:
 
-3.1.Cost of autonomous time system construction
+### 3.1.Cost of autonomous time system construction
 Maintaining atomic clock stability requires each LEO satellite to be equipped with high-precision atomic clocks (such as rubidium clocks). However, the lifespan of LEO satellites is only 5-7 years (compared to 15 years for MEO satellites), resulting in a drastic increase in unit time costs. If the constellation deploys hydrogen clocks comprehensively, its operational costs could exceed 300% that of MEO systems.
 
-3.2.Complexity of cross-system interoperation
+### 3.2.Complexity of cross-system interoperation
 If LEO serves as an augmentation layer for GNSS, it necessitates unified temporal and spatial reference systems with GPS, Galileo, and other systems. However, the high-speed motion of LEO satellites results in relativistic correction terms (approximately 10^-10 scale) that are two orders of magnitude higher than those for MEO satellites, complicating compatibility with traditional GNSS receiver algorithms. The European Space Agency (ESA) has attempted to synchronize clock discrepancies between LEO and MEO through inter-satellite links in its Moonlight project, but the transmission of inter-satellite ranging error leads to a positioning accuracy loss of up to 12%.
 System-Level Challenges: Security, Power Consumption, and Spectrum Management
 
-4.System-level challenges
+## 4.System-level challenges
 At the application level, LEO navigation faces three major real-world constraints.
 
-4.1.Expanded vulnerability exposure
+### 4.1.Expanded vulnerability exposure
 The inter-satellite links of dense LEO constellations combined with ground control stations create a complex attack interface. At the 2022 DEF CON hacker conference, a demonstration showcased how software-defined radio (SDR) could inject spoofed LEO navigation signals, causing receiver offsets of up to 200 meters, thereby exposing security vulnerabilities inherent in an open signal system.
 
-4.2.Surge in terminal power consumption
+### 4.2.Surge in terminal power consumption
 Continuously tracking high-speed LEO satellites requires the number of receiver channels to increase from the traditional 12-16 to over 50. This change could result in a 3-5 times increase in power consumption for smartphones, conflicting with the energy efficiency demands of mobile devices.
 
-4.3.Intensifying spectrum resource competition
+### 4.3.Intensifying spectrum resource competition
 The International Telecommunication Union (ITU) has reached saturation in the frequency allocation for LEO communications, necessitating global coordination for new navigation-specific frequency bands. The upcoming 10.7-12.7 GHz frequency competition between OneWeb and GPS IIIF satellites in 2025 reflects the severity of this conflict.
