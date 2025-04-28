@@ -33,6 +33,41 @@ PPP-RTK, as a paradigm merging PPP (Precise Point Positioning) and RTK (Real-Tim
 ## 5.Technological integration and future evolution
 High-precision navigation on smartphones is moving towards a technology route of multi-source integration. The prevalence of dual-frequency GNSS chips provides the hardware foundation for carrier phase observations, while improved edge computing capabilities enable real-time ambiguity resolution on smartphones. The introduction of the GNSS raw observation value interface in Android 14 by Google allows third-party algorithms to directly process phase data, significantly lowering the application threshold for RTK/PPP-RTK. Simultaneously, the tight coupling of inertial sensors and visual SLAM can compensate for positioning continuity during GNSS signal interruptions. In the future, emerging technologies such as low Earth orbit satellite augmentation and quantum inertial navigation may further break existing accuracy limits, but the constraints of power consumption and cost control in smartphones will continue to dominate the technology selection pathway. Throughout this process, the technical boundaries of DGNSS, RTK, and PPP will become increasingly blurred, eventually evolving into a demand-customized hybrid augmentation positioning service system.
 
+# Task 2 – GNSS in Urban Areas
+I encountered some challenges in the implementation of the GNSS code, and I don't have a final implementation. I only have some pseudo code to reflect my ideas.
+
+import numpy as np
+from georinex import rinexobs
+from skyfield.api import Loader
+
+# Load data
+obs_data = rinexobs.load("urban_data.obs")  # RINEX observation file
+skymask = load_skymask("skymask.csv")       # Skymask (azimuth vs elevation threshold)
+ground_truth = (22.3198722, 114.209101777778, 3.0)
+
+for epoch in obs_data:
+    # Step 1: Compute satellite azimuth/elevation
+    sats = preprocess(epoch)  # Extract PRN, pseudorange, compute satellite positions
+    
+    # Step 2: Filter blocked satellites using skymask
+    visible_sats = []
+    for sat in sats:
+        az = sat.azimuth
+        el = sat.elevation
+        # Find nearest skymask azimuth bin (e.g., 5-degree resolution)
+        az_bin = round(az / 5) * 5
+        if el > skymask.get(az_bin, 0):
+            visible_sats.append(sat)
+    
+    # Step 3: Weighted Least Squares (WLS) positioning
+    if len(visible_sats) >= 4:
+        # Elevation-dependent weighting
+        weights = [1 / (np.sin(np.radians(sat.elevation)) for sat in visible_sats]
+        pos_enu = solve_wls(visible_sats, weights)  # WLS solver
+        pos_geo = enu_to_geodetic(pos_enu, ground_truth)
+        print(f"Optimized Position: {pos_geo}")
+    else:
+        print("Insufficient visible satellites.")
 # Task 4 – LEO Satellites for Navigation
 # The navigation paradox of low earth orbit constellations: Opportunities, challenges, and technological breakthroughs
 
