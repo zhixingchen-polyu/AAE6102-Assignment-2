@@ -1,5 +1,5 @@
-# AAE6102_Assignment2: Lonosphere mapping based GNSS ground station
-
+# AAE6102_Assignment2: Lonosphere mapping based GNSS ground station 
+student no: 24038229R
 ![GNSS-Technologies](https://img.shields.io/badge/GNSS-DGNSS%7CRTK%7CPPP%7CPPP--RTK-blue) 
 
 # Task 1 – Differential GNSS Positioning
