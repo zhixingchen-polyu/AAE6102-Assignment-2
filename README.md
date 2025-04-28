@@ -184,10 +184,20 @@ Despite GNSS-R's immense potential, its development is constrained by dual chall
 ## 6.Future perspectives of interdisciplinary integration
 GNSS-R is poised for deep integration with cutting-edge technologies such as artificial intelligence and quantum sensing. By employing convolutional neural networks to directly invert surface parameters from raw Delay-Doppler Map (DDM) data, the speed of soil moisture inversion could be improved by two orders of magnitude. Attempts to utilize quantum entanglement to enhance the signal-to-noise ratio of reflected signals have shown promising initial results, with ice density measurement accuracy reaching 0.5%. These breakthroughs indicate that GNSS-R is transforming from a supplementary observation method into a core data engine for the next generation of Earth system science. As GNSS satellite networks continue to weave a positioning framework, their reflected signals quietly construct an invisible network that senses the pulses of the Earth. This "single-source dual-use" technological philosophy not only significantly expands the dimensions of human observation of the Earth but also redefines the performance boundaries of space infrastructure.
 
-#### Declaration of AI and AI-assisted technologies in the writing process
+## Declaration of AI and AI-assisted technologies in the writing process
 During the preparation of this work, the author(s) used GenAI to collecting Information and enhance the readability of the text. After using this tool/service, the author(s) reviewed and edited the content as necessary and assume(s) full responsibility for the content.
 ```
 Model: ChatGPT 4o
 
 Chatroom Link: https://poe.com/s/IVQFgK1GDGzWZm1UR24O
+
+```
+## References
+```
+Schaefer, M., & Pearson, A. (2021). Accuracy and precision of GNSS in the field. In GPS and GNSS Technology in Geosciences (pp. 393-414). Elsevier.
+Prol, F. S., Ferre, R. M., Saleem, Z., Välisuo, P., Pinell, C., Lohan, E. S., ... & Kuusniemi, H. (2022). Position, navigation, and timing (PNT) through low earth orbit (LEO) satellites: A survey on current status, challenges, and opportunities. IEEE access, 10, 83971-84002.
+Yu, K. (2021). Theory and practice of GNSS reflectometry. Berlin, Germany: Springer.
+Edokossi, K., Calabia, A., Jin, S., & Molina, I. (2020). GNSS-reflectometry and remote sensing of soil moisture: A review of measurement techniques, methods, and applications. Remote Sensing, 12(4), 614.
+Egido, A. (2013). GNSS reflectometry for land remote sensing applications (Doctoral dissertation, Polytechnic University of Catalonia, Spain).
+Walter, T., & Enge, P. (1995, September). Weighted RAIM for precision approach. In Proceedings of Ion GPS (Vol. 8, No. 1, pp. 1995-2004). Institute of Navigation.
 ```
